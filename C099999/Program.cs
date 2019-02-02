@@ -59,12 +59,14 @@ namespace C099999
             Ajax.isAstrilde = true;
             Maple.villageName = "Toronto";
             Maple.nextVillage = Toronto;
+            Toronto.nextVillage = Ajax;
 
         }
         public void travel()
             {
-              Village currentVillage = Toronto;
+              Village currentVillage = Maple;
             while(!currentVillage.isAstrilde){
+                Console.WriteLine(" I am in " + currentVillage.villageName);
                 if (currentVillage.isAstrilde)
                     Console.WriteLine("You foundn Astrilde in "+ currentVillage);
                 else
