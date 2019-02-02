@@ -10,8 +10,10 @@ namespace C099999
     {
         static void Main(string[] args)
         {
-            //Countryside c = new Countryside();
-            //c.run();
+            Countryside c = new Countryside();
+            c.run();
+            c.travel();
+           
         }
     }
 
@@ -44,6 +46,7 @@ namespace C099999
         public Village prevVillage;
         public string villageName;
     }
+
     class Countryside
     {
         Village Toronto, Maple, Ajax;
@@ -53,9 +56,23 @@ namespace C099999
             Maple = new Village();
             Toronto = new Village();
             Ajax = new Village();
+            Ajax.isAstrilde = true;
             Maple.villageName = "Toronto";
             Maple.nextVillage = Toronto;
 
         }
+        public void travel()
+            {
+              Village currentVillage = Toronto;
+            while(!currentVillage.isAstrilde){
+                if (currentVillage.isAstrilde)
+                    Console.WriteLine("You foundn Astrilde in "+ currentVillage);
+                else
+                    currentVillage= currentVillage.nextVillage;
+
+}
+}         
+        
+
     }
 }
