@@ -42,7 +42,7 @@ namespace C099999
 
     class Village
     {
-        public bool isAstrilde;
+        public bool isAstrildeHere;
         public Village nextVillage;
         public Village prevVillage;
         public string villageName;
@@ -50,14 +50,15 @@ namespace C099999
 
     class Countryside
     {
-        Village Toronto, Maple, Ajax;
+        Village Toronto, Maple, Ajax, CurrentVillage;
 
         public void run()
         {
             Maple = new Village();
             Toronto = new Village();
             Ajax = new Village();
-            Ajax.isAstrilde = true;
+            Ajax.villageName = "Ajax";
+            Ajax.isAstrildeHere = true;
             Maple.villageName = "Maple";
             Maple.nextVillage = Toronto;
             Toronto.nextVillage = Ajax;
@@ -66,18 +67,28 @@ namespace C099999
         }
         public void travel()
             {
-            Village currentVillage = Maple;
+                CurrentVillage = Maple;
 
-            while( currentVillage.nextVillage != null ){
-                Console.WriteLine(" I am in " + currentVillage.villageName);
-                if (currentVillage.isAstrilde)
-                    Console.WriteLine("You found Astrilde in "+ currentVillage);
-                else
-                    currentVillage= currentVillage.nextVillage;
+                while (true)
+	                {
+                        if (CurrentVillage.isAstrildeHere) {
+                            Console.WriteLine("Astrilde is in " + CurrentVillage.villageName); 
+                            Console.ReadLine();}
+                        else {CurrentVillage = CurrentVillage.nextVillage;}
+	                }
+                
+
+
+                
+
+                
+
+
+
 
 }
 }         
         
 
     }
-}
+
